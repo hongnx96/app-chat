@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container-fluid h-100">
+        <div class="row mt-3" id="registerChat">
+            <div class="col"></div>
+            <div class="col-3">
+                <form class="card card-body" id="formRegister">
+                    <h4 class="text-center">App Chat</h4>
+                    <input type="text" id="txtName" class="form-control mb-2" placeholder="Enter username" />
+                    <input type="text" id="txtRoom" class="form-control mb-2" placeholder="Enter room chat" />
+                    <select id="selectAvatar" class="form-control mb-2">
+                        <option value="" selected>Choose avatar</option>
+                        <option value="avatar1.jpg">Avatar1</option>
+                        <option value="avatar2.jpg">Avatar2</option>
+                        <option value="avatar3.jpg">Avatar3</option>
+                        <option value="avatar4.jpg">Avatar4</option>
+                        <option value="avatar5.jpg">Avatar5</option>
+                        <option value="avatar6.jpg">Avatar6</option>
+                        <option value="avatar7.jpg">Avatar7</option>
+                        <option value="avatar8.jpg">Avatar8</option>
+                        <option value="avatar9.jpg">Avatar9</option>
+                        <option value="avatar10.jpg">Avatar10</option>
+                    </select>
+                    <button class="btn btn-danger">JOIN</button>
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row justify-content-center h-100" id="chatMessage">
+            <div class="col-3 hidden-md-down left">
+                <div class="row row_chat">
+                    <div class="col-7"><b>Chat</b></div>
+                    <div class="col-5 text-right" >
+                        <div class="d-inline-block"><b>Online: </b></div>
+                        <div class="d-inline-block" id="numberOnline"></div>
+                    </div>
+                </div>
+                <div class="row row_room">
+                    <div class="pl-2"><b>List room</b></div>
+                    <div id="listRoom" class="nav flex-column"></div>
+                </div>
+                <div class="row row_username">
+                    <div class="pl-2"><b>List username</b></div>
+                    <ul id="listUser" class="nav flex-column"></ul>
+                </div>
+            </div>
+            <div class="col-9 right">
+                <div class="row row_list_room">
+                    <div class="col-7" >
+                        <div class="d-inline-block"><b id="room">Room: </b></div>
+                        <div class="d-inline-block" id="currentRoom"></div>
+                    </div>
+                    <div class="col-5 text-right">
+                        <div class="d-inline-block"><b>Username: </b></div>
+                        <div class="d-inline-block" id="username"></div>
+                        <div class="d-inline-block" onclick="logout()" id="logout"><i class="fas fa-sign-out-alt"></i></div>
+                    </div>
+                </div>
+                <div>
+                    <div onclick="chatRoom()" id="chatRoom" class="d-inline-block mr-4">Chat Room</div>
+                    <div onclick="chatTwo()" id="chatTwo" class="d-inline-block">Chat Two</div>
+                </div>
+                <div id="listMessageRoom">
+                    <div id="boxMessageRoom"></div>
+                    <form id="btnSendRoom" class="input-group pl-1 pt-1 pr-1 pb-1">
+                        <input type="text" class="form-control" id="txtMsgRoom" placeholder="Enter message" />
+                        <button class="btn btn-dark input-form-append btnSend">Send</button>
+                    </form>
+                </div>
+                <div id="listMessageChatTwo">
+                    <div id="boxMessageChatTwo"></div>
+                    <form id="btnSendChatTwo" class="input-group pl-1 pt-1 pr-1 pb-1">
+                        <input type="text" class="form-control" id="txtMsgChatTwo" placeholder="Enter message" />
+                        <button class="btn btn-dark input-form-append btnSend">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+    <script src="socket.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+body, html {
+    background-color: rgb(15, 146, 221);
+    height: 100%;
+}
+
+#chat {
+    height: 100%;
+}
+
+.left {
+    border: solid 1px rgb(188, 196, 195);
+    background-color: white;
+    border-bottom-left-radius: 5px;
+}
+
+.right {
+    border: solid 1px rgb(188, 196, 195);
+    background-color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.row_chat, .row_room, .row_username, .row_list_room {
+    border-bottom: 2px solid rgb(188, 196, 195);
+}
+
+.row_room, .row_username {
+    height: auto;
+}
+
+#chatRoom {
+    cursor: pointer; 
+    color: rgb(15, 146, 221); 
+    border-bottom: 2px solid rgb(15, 146, 221);
+}
+
+#chatTwo {
+    cursor: pointer; 
+    color: black; 
+    border-bottom: 2px solid black;
+}
+
+#btnSendRoom, #btnSendChatTwo {
+    bottom: 0px; 
+    left: 0px; 
+    position: absolute; 
+    min-width: 80%; 
+    border: 2px solid rgb(188, 196, 195); 
+    background-color: rgb(188, 196, 195);
+}
+
+#txtMsgRoom, #txtMsgChatTwo {
+    width: 90%; 
+    box-shadow: none;
+}
+
+.btnSend {
+    width: 10%;
+}
+
+
+.name {
+    cursor: pointer;
+    color: rgb(104, 100, 100);
+}
+
+/* .message{
+    width: 100%;
+} */
+
+#logout {
+    cursor: pointer;
+}
+
+.parent_room {
+    cursor: pointer;
+}
+
+.child_room {
+    color: rgb(104, 100, 100);
+}
+
+.fa-circle {
+    font-size: 6px; 
+    color: rgb(3, 216, 17);
+}
+
+.avatar {
+    width: 14px; 
+    height: 14px; 
+    border-radius: 50%;
+}
+
+.message_room {
+    font-weight: bold;
+}
+
+.time {
+    font-size: 10px; 
+    color: #8f8f8f;
+}
+
+.avatar_chat_two {
+    width: 14px; 
+    height: 14px; 
+    border-radius: 50%; 
+    margin-right: -4px;
+}
+
+.message_chat_two_left {
+    width: fit-content; 
+    background-color: rgb(247, 247, 243); 
+    border-radius: 35%;
+    padding: 0px 5px 0px 5px; 
+}
+
+.message_chat_two_right {
+    width: fit-content; 
+    background-color: rgb(247, 247, 243); 
+    border-radius: 35%;
+    margin-right: -4px;
+    padding: 0px 8px 2px 8px;
+}
+
+.parent_message_chat_two, .parent_type_right {
+    text-align: right;
+}
+
+
+.type {
+    color: #8f8f8f;
+}
