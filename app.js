@@ -43,24 +43,6 @@ const onConnection = (socket) => {
     sendMessageRoom(io, socket);
     stopTypeChatTwo(socket);
     stopTypeRoom(io, socket);
-
-    // socket.on('client:send-photo-chat-two', (data) => {
-    //     let today = new Date();
-    //     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    //     const buffer = Buffer.from(data.photo, 'base64');
-    //     fs.writeFile(__dirname + '/public/photos', buffer, err => {
-    //         if(err != null) {
-    //             console.log(err);
-    //         } else {
-    //             io.to(socket.id).to(data.id).emit('server:send-photo-chat-two', {
-    //                 photo: data.photo.toString('base64'),
-    //                 name: socket.Username,
-    //                 time,
-    //                 avatar: socket.avatar
-    //             });
-    //         }
-    //     });
-    // });
 };
 
 io.on('connection', onConnection);
