@@ -13,12 +13,12 @@ $(document).ready(() => {
 
     $('#formRegister').submit((e) => {
         e.preventDefault();
-        console.log('ok');
+        //console.log('ok');
         const avatar = $('#selectAvatar').val();
         const name = $('#txtName').val();
         const room = $('#txtRoom').val();
         const messageColor = Math.floor(Math.random()*16777215).toString(16);
-        console.log(avatar);
+        //console.log(avatar);
         if(!name) {
             alert('Name cannot be left blank.');
         }
@@ -50,8 +50,26 @@ $(document).ready(() => {
 
     $('#btnSendChatTwo').submit((e) => {
         e.preventDefault();
+        const photo = $('#photo').val();
+        //console.log(photo);
+        if(photo) {
+            console.log('photo');
+            const selector = document.getElementById('photo');
+            const reader = new FileReader();
+            reader.onload = function() {
+                const base64 = this.result.replace(/.*base64,/, '');
+                console.log(base64);
+                socket.emit('client:send-photo-chat-two', {
+                    id: idChatTwo,
+                    photo: base64
+                });
+            };
+            reader.readAsDataURL(selector.files[0]);
+        }
+        $('#photo').val('');
+        $(this).siblings(".custom-file-label").addClass("selected").html('');
         const message = $('#txtMsgChatTwo').val();
-        if(checkChatTwo) {
+        if(checkChatTwo && message) {
             socket.emit('client:send-message-chat-two', {
                 id: idChatTwo,
                 message
@@ -87,11 +105,18 @@ $(document).ready(() => {
         }
     });
 
+
+    $(".custom-file-input").on("change", function() {
+        const fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        //console.log(document.getElementById('file').files);
+    });
+
 });
 
 function selectedUser(id, name, avatar) {
-    console.log('select user');
-    console.log(id);
+   // console.log('select user');
+    //console.log(id);
     socket.emit('client:join-chat-two-user', {
         id,
         name,

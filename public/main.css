@@ -129,3 +129,12 @@ body, html {
 .type {
     color: #8f8f8f;
 }
+
+.photo {
+    width: 100px;
+    height: 100px;
+}
+
+img.avatar_chat_two {
+    margin-left: -5px;
+}

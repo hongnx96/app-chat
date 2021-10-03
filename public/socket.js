@@ -177,3 +177,27 @@ socket.on('server:select-room-success', (currentRoom) => {
     $('#room').html('');
     $('#room').append('<b id="room">Room: </b>');
 });
+
+
+socket.on('server:send-photo-chat-two', (data) => {
+    console.log('photo data', data);
+    const name = document.getElementById('username').innerText;
+    //console.log('name client', name);
+    if(name === data.name) {
+        $('#boxMessageChatTwo').append(
+            '<div class="animate__animated animate__fadeInUp"> ' +
+                '<div class="d-inline-block">' + '<img class="avatar_chat_two" src="avatars/' + data.avatar +'"' + '></img>' + '</div> ' +
+                '<div class="d-inline-block">' + '<img class="photo" src="data:image/jpg;base64,' + data.photo + '"' + '></img>' + '</div> ' +
+                '<div class="d-inline-block time">' + data.time + '</div> ' +
+            '</div>'
+        );
+    } else {
+        $('#boxMessageChatTwo').append(
+            '<div class="animate__animated animate__fadeInUp parent_message_chat_two"> ' +
+                '<div class="d-inline-block time">' + data.time + '</div> ' +
+                '<div class="d-inline-block">' + '<img class="photo" src="data:image/jpg;base64,' + data.photo + '"' + '></img>' + '</div> ' +
+                '<div class="d-inline-block">' + '<img class="avatar_chat_two" src="avatars/' + data.avatar +'"' + '></img>' + '</div> ' +
+            '</div>'
+        );
+    }
+});
