@@ -67,7 +67,8 @@ $(document).ready(() => {
             reader.readAsDataURL(selector.files[0]);
         }
         $('#photo').val('');
-        $(this).siblings(".custom-file-label").addClass("selected").html('');
+        // $(this).siblings(".custom-file-label").html('');
+        // console.log($(this).siblings(".custom-file-label"));
         const message = $('#txtMsgChatTwo').val();
         if(checkChatTwo && message) {
             socket.emit('client:send-message-chat-two', {
@@ -106,11 +107,11 @@ $(document).ready(() => {
     });
 
 
-    $(".custom-file-input").on("change", function() {
-        const fileName = $(this).val().split("\\").pop();
-        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        //console.log(document.getElementById('file').files);
-    });
+    // $(".custom-file-input").on("change", function() {
+    //     const fileName = $(this).val().split("\\").pop();
+    //     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    //     //console.log(document.getElementById('file').files);
+    // });
 
 });
 
